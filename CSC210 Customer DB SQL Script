@@ -1,0 +1,28 @@
+Database SQL Script
+
+1.	CREATE SCHEMA ‘csc210_company_info’;
+2.	CREATE TABLE ‘csc210_company_info’, ‘customers’ (‘cust_id’ INT NOT NULL, ‘cust_name’ VARCHAR(45) NULL, ‘cust_address’ VARCHAR(45) NULL, ‘cust_city’ VARCHAR(45) NULL cust_state’ VARCHAR(45) NULL, ‘cust_zip’ INT NOT NULL, ‘cust_country’ VARCHAR(45) NULL, ‘cust_contact’ VARCHAR(45) NULL, ‘cust_email’ VARCHAR(45) NULL), PRIMARY KEY (‘cust_id’, ‘cust_zip’);
+3.	INSERT INTO `csc210_company_info`.`customers` (`cust_id`, `cust_name`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_country`, `cust_contact`, `cust_email`) VALUES ('1000000001', 'Village Toys', '200 Maple Lane', 'Detroit', 'MI', '44444', 'USA', 'John Smith', 'sales@villagetoys.com');
+INSERT INTO `csc210_company_info`.`customers` (`cust_id`, `cust_name`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_country`, `cust_contact`) VALUES ('1000000002', 'Kids Place', '333 South Lake Drive', 'Columbus', 'OH', '43333', 'USA', 'Michelle Green');
+INSERT INTO `csc210_company_info`.`customers` (`cust_id`, `cust_name`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_country`, `cust_contact`, `cust_email`) VALUES ('1000000003', 'Fun4All', '1 Sunny Place', 'Muncie', 'IN', '42222', 'USA', 'Jim Jones', 'jjones@fun4all.com');
+INSERT INTO `csc210_company_info`.`customers` (`cust_id`, `cust_name`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_country`, `cust_contact`, `cust_email`) VALUES ('1000000004', 'Fun4All', '829 Riverside Drive', 'Phoenix', 'AZ', '88888', 'USA', 'Denise L. Stephens', 'dstephens@fun4all.com');
+INSERT INTO `csc210_company_info`.`customers` (`cust_id`, `cust_name`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_country`, `cust_contact`) VALUES ('1000000005', 'The Toy Store', '4545 53rd Street', 'Chicago', 'Il', '54545', 'USA', 'Kim Howard');
+4.	UPDATE `csc210_company_info`.`customers` SET `cust_address` = '7504 39th Avenue', `cust_city` = 'Olympia', `cust_state` = 'WA', `cust_zip` = '98503' WHERE (`cust_id` = '1000000003') and (`cust_zip` = '42222');
+5.	DELETE FROM customers WHERE cust_id = 1000000005
+6.	CREATE TABLE `csc210_company_info`.`new_table` (`idnew_table` INT NOT NULL, `new_tablecol` VARCHAR(45) NOT NULL, `new_tablecol1` VARCHAR(45) NOT NULL, PRIMARY KEY (`idnew_table`, `new_tablecol`, `new_tablecol1`));
+7.	INSERT INTO `csc210_company_info`.`new_table` (`idnew_table`, `new_tablecol`, `new_tablecol1`) VALUES ('1', 'A', '!');
+INSERT INTO `csc210_company_info`.`new_table` (`idnew_table`, `new_tablecol`, `new_tablecol1`) VALUES ('2', 'B', '@');
+INSERT INTO `csc210_company_info`.`new_table` (`idnew_table`, `new_tablecol`, `new_tablecol1`) VALUES ('3', 'C', '#');
+8.	DROP TABLE `csc210_company_info`.`new_table`
+9.	DROP DATABASE `new_schema`;
+10.	SELECT * FROM csc210_company_info.customers;
+11.	SELECT cust_name, cust_city, cust_email FROM customers;
+12.	SELECT DISTINCT cust_name FROM customers;
+13.	SELECT * FROM customers WHERE cust_name = 'Fun4All'
+14.	CREATE TABLE `orders` ( `order_num` int NOT NULL, `order_date` varchar(45) NOT NULL, `cust_id` varchar(45) NOT NULL, PRIMARY KEY (`order_num`) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='Add columns'
+15.	INSERT INTO `csc210_company_info`.`orders` (`order_num`, `order_date`, `cust_id`) VALUES ('20009', '2012-02-08', '1000000001')
+16.	SELECT order_num, cust_id FROM orders ORDER BY order_num, cust_id;
+17.	SELECT order_num, cust_id FROM orders ORDER BY order_num DESC, cust_id;
+18.	SELECT cust_id, cust_email FROM customers WHERE cust_email IS NULL;
+19.	SELECT cust_id, cust_email FROM customers WHERE cust_email IS NOT NULL;
+20.	SELECT cust_id, cust_name, cust_email FROM customers WHERE cust_email Like 'jjones%';
